@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Salir conmigo?</title>
+    <style>
+        body {
+            background-color: purple;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-yes {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-no {
+            background-color: #dc3545;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup">
+        <h1>¿Te gustaría salir conmigo hoy?</h1>
+        <div class="button-container">
+            <button class="btn btn-yes" onclick="aceptar()">Sí</button>
+            <button class="btn btn-no" onmouseover="moverBoton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        const btnNo = document.querySelector(".btn-no");
+
+        function moverBoton() {
+            const anchoVentana = window.innerWidth;
+            const altoVentana = window.innerHeight;
+            const anchoBoton = btnNo.offsetWidth;
+            const altoBoton = btnNo.offsetHeight;
+
+            const nuevaPosX = Math.random() * (anchoVentana - anchoBoton);
+            const nuevaPosY = Math.random() * (altoVentana - altoBoton);
+
+            btnNo.style.left = `${nuevaPosX}px`;
+            btnNo.style.top = `${nuevaPosY}px`;
+        }
+
+        function aceptar() {
+            alert("¡Perfecto! Nos vemos a las 8:00 PM en tu lugar favorito.");
+        }
+    </script>
+</body>
+</html>
